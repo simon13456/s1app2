@@ -31,7 +31,7 @@ int rechcaractere(char caractere, char tableaucaractere[], int tailletableau)
 	for (int i=0; i < tailletableau; i++)
 		if (tableaucaractere[i] == caractere)
 		{
-			return i;
+			return i+1;
 		}
 		
 	return -1;
@@ -50,8 +50,8 @@ int main()
 	char tableaucaractere[tailletableau];
 	
 	printf("Entrer le mot desire.\n");
-	scanf("%s",	tableaucaractere);	
-	
+	gets(tableaucaractere);
+
 	char caractere;
 	
 	printf("\nEntrer le caractere desire dans le mot precedent.\n");
