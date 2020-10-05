@@ -2,23 +2,22 @@
 #define rangee 3
 #define colonne 3
 #define carre 3
-#define iteration 10000
+#define iteration 1000
 void AdditionMat(int a[rangee][colonne],int b[rangee][colonne]);
 void MultiMat(int a[rangee][colonne],int b[rangee][colonne]);
-double sinus(float angle);
+int sinus(int angle);
 int pwr(int base,int ala);
-long double factoriel(int nombre);
+int factoriel(int nombre);
 int main(int argc, char **argv)
 {
 	int a[carre][carre]={{1,1,1},{1,1,1},{1,1,1}};
 	int b[carre][carre]={{2,2,2},{2,2,2},{2,2,2}};
-	AdditionMat(a,b);
 	int f[carre][carre]={{1,2,3},{4,5,6},{7,8,9}};
+	AdditionMat(f,b);
 	int g[carre][carre]={{1,2,3},{4,5,6},{7,8,9}};
-	MultiMat(f,g);
-	printf("%d\n",pwr(9,2));
-	printf("%.17g\n",sinus(2));
+	MultiMat(a,g);
 	return 0;
+	
 }
 void AdditionMat(int a[rangee][colonne],int b[rangee][colonne]){
 	int c [rangee][colonne];
@@ -55,8 +54,8 @@ void MultiMat(int a[carre][carre],int b[carre][carre]){
 		printf("|\n");
 	}
 }
-double sinus(float angle){
-	double reponse=angle;
+int sinus(int angle){
+	int reponse=angle;
 	int j=3;
 	for(int i=2;i<iteration; i++){
 		if((i%2)==0){
@@ -72,13 +71,13 @@ double sinus(float angle){
 }
 int pwr(int base,int ala){
 	int reponse=base;
-	for(int i=1;i<ala; i++){
+	for(int i=0; i< ala; i++){
 			reponse*=base;
 	}
 	return reponse;
 }
-long double factoriel(int nombre){
-	long double reponse = 1;
+int factoriel(int nombre){
+	int reponse = 0;
 	for(int i=1; i<=nombre; i++){
 		reponse*=i;
 	}
