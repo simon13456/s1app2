@@ -34,10 +34,10 @@ int main(int argc, char **argv)
 	printf("Le calcul du sinus avec l'angle en radian  %.4f est de : %.4f\n", (pi/4), sinus((pi/4)));
 	printf("Le calcul du sinus avec l'angle en radian  %.4f est de : %.4f\n", (pi/2), sinus((pi/2)));
 	
-	int a[rangee][colonne]={{1,2},{3,4},{5,6}};
+	int a[rangee][colonne]={{2,2},{3,4},{5,6}};
 	int b[rangee][colonne]={{6,5},{4,3},{2,1}};
 	
-	printf("L'addition des matrice a et b donne : \n" );
+	printf("\n L'addition des matrice a et b donne : \n" );
 	AdditionMat(a,b);
 	return 0;
 }
