@@ -2,15 +2,14 @@
 #define rangee 3
 #define colonne 3
 #define carre 3
-#define iteration 100
+#define iteration 10000
 void AdditionMat(int a[rangee][colonne],int b[rangee][colonne]);
 void MultiMat(int a[rangee][colonne],int b[rangee][colonne]);
 double sinus(float angle);
-float pwr(float base,int ala);
+int pwr(int base,int ala);
 long double factoriel(int nombre);
 int main(int argc, char **argv)
 {
-	printf("%f",sinus(0.5));
 	return 0;
 }
 void AdditionMat(int a[rangee][colonne],int b[rangee][colonne]){
@@ -63,7 +62,7 @@ double sinus(float angle){
 	return reponse;
 
 }
-float pwr(float base,int ala){
+int pwr(int base,int ala){
 	int reponse=base;
 	for(int i=1;i<ala; i++){
 			reponse*=base;
