@@ -1,0 +1,36 @@
+FONCTION sinus(angle):reponse
+	//angle(réel)
+	//reponse(réel)
+DÉBUT
+	//j(entier)
+	//reponse:=angle
+	//j:=3
+	POUR i:=2 À  iteration PAR PAS DE 1
+		SI i%2 est égal à 0 ALORS
+			reponse:= reponse - pwr(angle,j)/factoriel(j)
+		SINON
+			reponse:= reponse + pwr(angle,j)/factoriel(j)
+		j=j+2
+	Retourner la valeur de reponse
+FIN
+
+FONCTION pwr(base,ala):reponse
+	//base(réel)
+	//ala(entier)
+	//reponse(réel)
+DÉBUT
+	//reponse:=base
+	POUR i:=1 À i<ala PAR PAS DE 1
+		reponse:= reponse*base
+	Retourner la valeur de reponse
+FIN
+
+FONCTION factoriel(nombre):reponse
+	//nombre(entier)
+	//reponse(réel long)
+DÉBUT
+	//reponse:=1
+	POUR i:=1 À i<=nombre PAR PAS DE 1
+		reponse:= reponse*i
+	retourner la valeur de reponse
+FIN

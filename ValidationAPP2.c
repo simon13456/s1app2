@@ -1,13 +1,20 @@
+/********
+Fichier: Validation APP2
+Auteurs: Simon Leroux LERS0601
+		 Benjamin Gélinas GELB2602
+Date: 06/10/2020
+Description: Fonctions faisant des opérations mathématiques sans aucune librairie
+********/
 #include <stdio.h>
 #define rangee 3
-#define colonne 3
+#define colonne 2
 #define carre 3
 #define iteration 10
 #define termes 5
 #define pi 3.1415
 
 void AdditionMat(int a[rangee][colonne],int b[rangee][colonne]);
-void MultiMat(int a[rangee][colonne],int b[rangee][colonne]);
+void MultiMat(int a[carre][carre],int b[carre][carre]);
 double sinus(float angle);
 float pwr(float base,int ala);
 long double factoriel(int nombre);
@@ -27,9 +34,18 @@ int main(int argc, char **argv)
 	printf("Le calcul du sinus avec l'angle en radian  %.4f est de : %.4f\n", (pi/4), sinus((pi/4)));
 	printf("Le calcul du sinus avec l'angle en radian  %.4f est de : %.4f\n", (pi/2), sinus((pi/2)));
 	
+	int a[rangee][colonne]={{1,2},{3,4},{5,6}};
+	int b[rangee][colonne]={{6,5},{4,3},{2,1}};
+	
+	printf("L'addition des matrice a et b donne : \n" );
+	AdditionMat(a,b);
 	return 0;
 }
-
+/***************
+ * Description:Fonction permetant de trouver l'index d'un caractère dans un tableau de caractères
+ * Précondition:
+ * Postcondition:
+ * **************/
 int rechcaractere(char caractere, char tableaucaractere[])
 {	
 	int i = 0;
@@ -49,7 +65,11 @@ int rechcaractere(char caractere, char tableaucaractere[])
 		
 	return -1;
 }
-
+/***************
+ * Description:Fonction permetant de déterminer si un tableau de caractères est un palindrome
+ * Précondition:
+ * Postcondition:
+ * **************/
 int palindrome(char mot[])
 {
 	
@@ -74,22 +94,31 @@ int palindrome(char mot[])
 	}
 	return 1;	
 }
-	
+/***************
+ * Description:Fonction permetant d'additionner deux matrices
+ * Précondition:
+ * Postcondition:
+ * **************/
 void AdditionMat(int a[rangee][colonne],int b[rangee][colonne]){
 	int c [rangee][colonne];
-	for(int i=0;i<carre;i++){
-		for(int j=0;j<carre;j++){
+	for(int i=0;i<rangee;i++){
+		for(int j=0;j<colonne;j++){
 			c[i][j]=a[i][j]+b[i][j];
 		}
 	}
-	for(int i=0;i<carre;i++){
+	for(int i=0;i<rangee;i++){
 		printf("|");
-		for(int j=0;j<carre;j++){
+		for(int j=0;j<colonne;j++){
 			printf(" %d",c[i][j]);
 		}
 		printf("|\n");
 	}
 }
+/***************
+ * Description:Fonction permetant d'additionner deux matrice
+ * Précondition:
+ * Postcondition:
+ * **************/
 void MultiMat(int a[carre][carre],int b[carre][carre]){
 	int temp=0;
 	int c[carre][carre];
@@ -110,7 +139,11 @@ void MultiMat(int a[carre][carre],int b[carre][carre]){
 		printf("|\n");
 	}
 }
-
+/***************
+ * Description:Fonction Permetant de trouver le sinus d'un angle en radian
+ * Précondition:
+ * Postcondition:
+ * **************/
 double sinus(float angle){
 	double reponse=angle;
 	int j=3;
@@ -126,7 +159,11 @@ double sinus(float angle){
 	return reponse;
 
 }
-
+/***************
+ * Description:Fonction permetant de trouver le cosinus d'un angle en radian
+ * Précondition:
+ * Postcondition:
+ * **************/
 double cosinus(double angle)
 {
 	double somme = 1;
@@ -146,7 +183,11 @@ double cosinus(double angle)
 		
 	return somme;
 }
-
+/***************
+ * Description:Fonction permetant de trouver la puissance d'un nombre
+ * Précondition:
+ * Postcondition:
+ * **************/
 float pwr(float base,int ala){
 	float reponse=base;
 	for(int i=1;i<ala; i++){
@@ -154,6 +195,11 @@ float pwr(float base,int ala){
 	}
 	return reponse;
 }
+/***************
+ * Description:Fonction permetant de trouver la factoriel d'un nombre
+ * Précondition:
+ * Postcondition:
+ * **************/
 long double factoriel(int nombre){
 	long double reponse = 1;
 	for(int i=1; i<=nombre; i++){
