@@ -1,5 +1,5 @@
 /*
- * ValidationAPP2.c
+ * recherchecaractere.c
  * 
  * Copyright 2020 benge <benge@LAPTOP-JGM2CQ2H>
  * 
@@ -21,11 +21,34 @@
  * 
  */
 
+/********
+Fichier: recherchecaractere
+Auteurs: Benjamin Gelinas gelb2602
+		 Simon Leroux lers0601
+Date: 06 octobre 2020
+********/
 
 #include <stdio.h>
-const int termes = 6;
-const float pi = 3.1416;
 
+int rechcaractere(char caractere, char tableaucaractere[]);
+
+
+int main(int argc, char **argv)
+{
+	printf("La recherche du caractere %c dans le mot salut est a la position : %d\n", 's', rechcaractere('s', "salut"));
+	printf("La recherche du caractere %c dans le mot Benjamin est a la position : %d\n", 'b', rechcaractere('b', "Benjamin"));
+	printf("La recherche du caractere %c dans le mot simon est a la position : %d\n", 'n', rechcaractere('n', "simon"));
+	printf("La recherche du caractere %c dans le mot jardin est a la position : %d\n\n", 'z', rechcaractere('z', "jardin"));
+	
+	return 0;
+}
+
+/***************
+ * Description:Fonction permetant de trouver l'index d'un caractère dans un tableau de caractères
+ * Précondition: Un mot en minuscule qui est un tableau de caractere et un caractere en minuscule
+ * Postcondition: La position du caractere etant un entier dans le mot si le caractere est dans le mot
+ * **************/
+ 
 int rechcaractere(char caractere, char tableaucaractere[])
 {	
 	int i = 0;
@@ -45,74 +68,3 @@ int rechcaractere(char caractere, char tableaucaractere[])
 		
 	return -1;
 }
-
-int palindrome(char mot[])
-{
-	
-	int i = 0;
-	int longueur_mot = 0;
-	
-	while (mot[i] != '\0')
-	{
-		longueur_mot++;
-		i++;
-	}
-	
-	for (int j=0; j <= longueur_mot; j++){
-		if (mot[j] == mot[longueur_mot - 1])
-		{
-			longueur_mot--;
-		}
-		else
-		{
-			return 0;
-		}
-	}
-	return 1;	
-}
-
-int factorielle(double x)
-{
-	int facto = 1;
-	
-	for (int i = 1; i <= x; i++)
-		facto *= i;
-		
-	return facto;
-}
-
-double exposant(double x, int power)
-{	
-	double expo = x;
-	
-	for (int i = 1; i < power; i++)
-		expo *= x;
-		
-	return expo;
-}
-
-double cosinus(double x)
-{
-	double somme = 1;
-	int j = 2;
-	
-	for (int i = 2; i < termes; i++){
-		if ((i%2)==0)
-			{
-				somme -= (exposant(x,j))/(factorielle(j));
-			}
-		else
-			{
-				somme += (exposant(x,j))/(factorielle(j));
-			}
-		j+=2;
-	}
-		
-	return somme;
-}
-
-int main()
-{		
-	return 0;
-}
-

@@ -1,0 +1,57 @@
+	// termes (entier) : le nombre de termes dans le calcul à partir d'une série
+	//pi (réelle) : la valeur de pi 3.1415
+
+FONCTION factorielle(x)
+
+DÉBUT
+
+	// x (réelle) : la valeur de l'angle en radian
+	// facto (entier) : la valeur de la factorielle
+	// i (entier) : compteur
+
+	facto := 1
+
+	POUR i := 1 À x PAR PAS DE 1
+		facto = facto * i
+
+	retourner facto
+FIN
+FONCTION exposant(x, power)
+
+	// x (réelle) : la valeur de l'angle en radian étant la base
+	// power (entier) : la valeur de l'exposant
+DÉBUT
+	// expo (entier) : le résultat de la fonction
+	//i (entier) : compteur
+
+	expo := x
+
+	POUR i := 1 À power PAR PAS DE 1
+		expo = expo * x
+
+	retourner expo
+FIN
+FONCTION cosinus(x)
+
+	// x (réelle) : la valeur de l'angle en radian
+DÉBUT
+	// somme (réelle) : sommation des termes dans la série pour approximer la valeur du cosinus
+	//i (entier) : compteur 1
+	//j (entier) : compteur 2
+
+	somme := 1
+	j := 2
+
+	POUR i := 2 À termes PAR PAS DE 1
+		SI i%2==0
+			somme = somme - (exposant(x,j))/(factorielle(j))
+		SINON
+			somme = somme + (exposant(x,j))/(factorielle(j))
+		j = j+2
+
+	retourner somme
+
+FIN
+
+		
+	

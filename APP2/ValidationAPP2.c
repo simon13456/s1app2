@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 	printf("La recherche du caractere %c dans le mot allocommentcava est a la position : %d\n\n", 'a', rechcaractere('a', "allocommentcava"));
 	
 	printf("Le calcul du sinus avec l'angle en radian  %d est de : %.4f\n", 1, sinus(1));
-	printf("Le calcul du sinus avec l'angle en radian  %d est de : %f\n", 0, sinus(0));
+	printf("Le calcul du sinus avec l'angle en radian  %d est de : %f\n", 0, cosinus(pi));
 	printf("Le calcul du sinus avec l'angle en radian  %.4f est de : %.4f\n", (pi/4), sinus((pi/4)));
 	printf("Le calcul du sinus avec l'angle en radian  %.4f est de : %.4f\n", (pi/2), sinus((pi/2)));
 	
@@ -39,7 +39,6 @@ int main(int argc, char **argv)
 	int c[rangee][colonne];
 	printf("\n L'addition des matrice a et b donne : \n" );
 	AdditionMat(a,b,c);
-	
 	for(int i=0;i<rangee;i++){
 		printf("|");
 		for(int j=0;j<colonne;j++){
@@ -47,6 +46,7 @@ int main(int argc, char **argv)
 		}
 		printf("|\n");
 	}
+	printf("%f\n", cosinus(pi));
 	return 0;
 }
 /***************
@@ -160,7 +160,6 @@ double cosinus(double angle)
 {
 	double somme = 1;
 	int j = 2;
-	
 	for (int i = 2; i < termes; i++){
 		if ((i%2)==0)
 			{
