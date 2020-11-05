@@ -12,6 +12,9 @@ int pgm_lire(char nom_fichier[], int matrice[MAX_HAUTEUR][MAX_LARGEUR], int *p_l
 	FILE *fichier;
 	char type[2]; 
 	fichier= fopen(nom_fichier,"r");
+	if(fichier== NULL){
+		return ERREUR_FICHIER;
+	}
 	if(fgetc(fichier)=='#'){
 		int p=0;
 		char c;
@@ -38,11 +41,11 @@ int pgm_lire(char nom_fichier[], int matrice[MAX_HAUTEUR][MAX_LARGEUR], int *p_l
 	if(type[0]!='P'||type[1]!='2'){
 		return ERREUR_FORMAT;
 	}
-	fscanf(fichier,"%d %d", p_lignes,p_colonnes);
+	fscanf(fichier,"%d %d", *p_lignes,*p_colonnes);
 	if((*p_lignes>MAX_HAUTEUR)||(*p_colonnes<MAX_LARGEUR)){
 		return ERREUR_TAILLE;
 	}
-	fscanf(fichier, "%d",p_maxval);
+	fscanf(fichier, "%d",*p_maxval);
 	if(*p_maxval>MAX_VALEUR){
 		return ERREUR;
 	}
@@ -160,10 +163,11 @@ int ppm_copier(struct RGB matrice1[MAX_HAUTEUR][MAX_LARGEUR], int lignes1, int c
 		if(lignes1!=*p_lignes2||colonnes1!=*p_colonnes2){
 				return ERREUR_TAILLE;
 		}
-		for(int i=0; i<lignes; i++){
-			for(int j=0; j<colonnes; j++){
+		*p_lignes2=lignes1;
+		*p_colonnes2=colonnes1;
+		for(int i=0; i<lignes1; i++){
+			for(int j=0; j<colonnes1; j++){
 				matrice2[i][j]=matrice1[i][j];
 			}
 		}
 }
-int ppm_sont_identiques(struct RGB matrice1[MAX_HAUTEUR][MAX_LARGEUR], int lignes1, int colonnes1, struct RGB matrice2[MAX_HAUTEUR][MAX_LARGEUR], int lignes2, int colonnes2);
