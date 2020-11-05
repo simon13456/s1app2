@@ -15,20 +15,20 @@ int pgm_lire(char nom_fichier[], int matrice[MAX_HAUTEUR][MAX_LARGEUR], int *p_l
 	if(fgetc(fichier)=='#'){
 		int p=0;
 		char c;
-		while((c=fgetc(fichier))!=';'){
+		while((c=fgetc(fichier))!=';'|| c!='\n'){
 			p_metadonnees->auteur[p] = c;
 			p++;
 			
 		}
 		p=0;
 		fgetc(fichier);
-		while((c=fgetc(fichier))!=';'){
+		while((c=fgetc(fichier))!=';'|| c!='\n'){
 			p_metadonnees->dateCreation[p] = c;
 			p++;
 		}
 		p=0;
 		fgetc(fichier);
-		while((c=fgetc(fichier))!='.'){
+		while((c=fgetc(fichier))!='.'|| c!='\n'){
 			p_metadonnees->lieuCreation[p] = c;
 			p++;
 		}
