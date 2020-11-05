@@ -24,7 +24,7 @@ int main()
     struct MetaData metadonnees;
 	
 	int retour;
-
+/*
     printf("-> Debut!\n");
 	puts("nom de fichier");
 	gets(nom);
@@ -35,10 +35,41 @@ int main()
 	if (retour == OK)
 		printf("-> OK");
 	else
+		printf("%d",retour);
+	printf("\n");
+	// autre exemple d'appel de fonction
+    printf("-> Fin!\n");
+    */
+    
+	printf("-> Debut!\n");
+	puts("nom de fichier");
+	gets(nom);
+	// exemple d'appel de fonction
+    retour = ppm_lire(nom, imageRGB1, &lignes1, &colonnes1, &maxval, &metadonnees);
+	// exemple detraitement d'un code de retour (erreur ou reussite)
+	printf("-> Retour: ");
+	if (retour == OK)
+		printf("-> OK");
+	else
 		printf("-> ERREUR");
 	printf("\n");
 	// autre exemple d'appel de fonction
     printf("-> Fin!\n");
-
+    
+    
+    printf("-> Debut!\n");
+	puts("nom de fichier");
+	gets(nom);
+	// exemple d'appel de fonction
+    retour = ppm_ecrire(nom, imageRGB1, lignes1, colonnes1, maxval, metadonnees);
+	// exemple detraitement d'un code de retour (erreur ou reussite)
+	printf("-> Retour: ");
+	if (retour == OK)
+		printf("-> OK");
+	else
+		printf("%d",retour);
+	printf("\n");
+	// autre exemple d'appel de fonction
+    printf("-> Fin!\n");
     return 0;
 }
