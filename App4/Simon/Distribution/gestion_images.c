@@ -8,12 +8,17 @@ Description: Fichier de distribution pour GEN145.
 
 #include <stdio.h>
 #include "bibliotheque_images.h"
-
+#include "AutoValidation.h"
 int image1[MAX_HAUTEUR][MAX_LARGEUR];
 int image2[MAX_HAUTEUR][MAX_LARGEUR];
 struct RGB imageRGB1[MAX_HAUTEUR][MAX_LARGEUR];
 struct RGB imageRGB2[MAX_HAUTEUR][MAX_LARGEUR];
 
+int main() {
+	AutoValidation();
+	return 0;
+ }
+/*
 int main()
 {
     int lignes1, colonnes1;
@@ -24,7 +29,6 @@ int main()
     struct MetaData metadonnees;
 	
 	int retour;
-
     printf("-> Debut!\n");
 	puts("nom de fichier");
 	gets(nom);
@@ -35,10 +39,41 @@ int main()
 	if (retour == OK)
 		printf("-> OK");
 	else
+		printf("%d",retour);
+	printf("\n");
+	// autre exemple d'appel de fonction
+    printf("-> Fin!\n");
+    
+	printf("-> Debut!\n");
+	puts("nom de fichier");
+	gets(nom);
+	// exemple d'appel de fonction
+    retour = ppm_lire(nom, imageRGB1, &lignes1, &colonnes1, &maxval, &metadonnees);
+	// exemple detraitement d'un code de retour (erreur ou reussite)
+	printf("-> Retour: ");
+	if (retour == OK)
+		printf("-> OK");
+	else
 		printf("-> ERREUR");
 	printf("\n");
 	// autre exemple d'appel de fonction
     printf("-> Fin!\n");
-
+    
+    
+    printf("-> Debut!\n");
+	puts("nom de fichier");
+	gets(nom);
+	// exemple d'appel de fonction
+    retour = ppm_ecrire(nom, imageRGB1, lignes1, colonnes1, maxval, metadonnees);
+	// exemple detraitement d'un code de retour (erreur ou reussite)
+	printf("-> Retour: ");
+	if (retour == OK)
+		printf("-> OK");
+	else
+		printf("%d",retour);
+	printf("\n");
+	// autre exemple d'appel de fonction
+    printf("-> Fin!\n");
     return 0;
 }
+*/

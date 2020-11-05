@@ -6,3 +6,4 @@ Pour compiler les fichiers de la problématique dans Geany:
     gcc -Wall -o gestion_images gestion_images.c bibliotheque_images.c
 
 Le fichier exécutable qui est généré se nomme "gestion_images.exe" 
+D:\\Simon\\Desktop\\Repo\\S1\\App4\\Simon\\Distribution\\Sherbrooke.Frontenac_nuit.pgm
