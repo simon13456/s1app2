@@ -9,4 +9,5 @@ Voici les différent lien vers différent projet réalisé au cours de mes APP
 Pour nous contacter:
 
 simon.leroux@usherbrooke.ca
-benjamin.gélinas@usherbrooke.ca
+
+benjamin.gelinas@usherbrooke.ca
