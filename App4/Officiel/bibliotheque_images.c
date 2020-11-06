@@ -11,13 +11,12 @@ Description: Fichier de distribution pour GEN145.
 int pgm_lire(char nom_fichier[], int matrice[MAX_HAUTEUR][MAX_LARGEUR], int *p_lignes, int *p_colonnes, int *p_maxval, struct MetaData *p_metadonnees){
 	FILE *fichier;
 	char type[10]; 
-	int col,lig,max;
+	char c='b';
 	fichier= fopen(nom_fichier,"r");
 	//si c'est pas existant
 	if(fichier== NULL){
 		return ERREUR_FICHIER;
 	}
-	char c='b';
 	if((c=fgetc(fichier))=='#'){
 		int p=0;
 		

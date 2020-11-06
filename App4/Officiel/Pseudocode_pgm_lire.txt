@@ -1,0 +1,50 @@
+FONCTION pgm_lire(nom_fichier,matrice,p_ligne,p_colonnes,p_maxval, p_metadonnees):retour
+	//permet de lire un fichier en format pgm
+	//nom_fichier(chaine caractère):nom fichier
+	//matrice(matrice en deux dimension d'entier):matrice pour mettre l'image
+	//p_lignes(pointeur d'entier):pointeur vers la valeur ligne
+	//p_colonnes(pointeur d'entier):pointeur vers la valeur colonnes
+	//p_maxval(pointeur d'entier):pointe vers la valeur de maxval
+	//p_metadonnees(structure de metadata):pointe vers une structure de metadata
+DÉBUT
+	//*fichier(FILE):flot d'entrée
+	//c(caractère)
+	//i(entier)
+	//j(entier)
+	//p(entier)
+	//type(tableau de caractère):taille 10, type lu du fichier
+
+	fichier:= fopen(nom_fichier,"r")
+	SI fichier est vide ALORS
+		retourner ERREUR_FICHIER
+	SI c:=fgetc(fichier) est égal à '#' ALORS
+		p:=0
+		TANT QUE c:=fgetc(fichier) n'est pas égal à ';' ou '\n' ou '\0'
+			p_metadonnees.auteur[p] := c
+			p:= p+1
+		p_metadonnees.auteur[p] := '\0'
+		p=0
+		TANT QUE c:=fgetc(fichier) n'est pas égal à ';' ou '\n' ou '\0'
+			p_metadonnees.dateCreation[p] := c
+			p:= p+1
+		p_metadonnees.dateCreation[p] := '\0'
+		p=0
+		TANT QUE c:=fgetc(fichier) n'est pas égal à ';' ou '\n' ou '\0'
+			p_metadonnees.lieuCreation[p] := c
+			p:= p+1
+		p_metadonnees.lieuCreation[p] := '\0'
+	fscanf(fichier,"%s",type)
+	SI c n'est pas égal à 'P' ou type[0] n'est pas égal à '2' et type[0] n'est pas égale à 'P' ou que type[1] n'est pas égal à '2' ALORS
+		retourner ERREUR_FORMAT
+	fscanf(fichier,"%d %d",p_colonnes,p_lignes)
+	SI (*p_lignes est plus grande que MAX_HAUTEUR ou que *p_colonnes est plus grand que MAX_HAUTEUR)
+		retourner ERREUR_TAILLE
+	fscanf(fichier,"%d",p_maxval)
+	SI *p_maxval est plus grand que MAX_VALEUR ALORS
+		retourner ERREUR_TAILLE
+	POUR i:=0 À *p_lignes PAR PAS DE 1
+		POUR j:=0 À *p_colonnes PAR PAS DE 1
+			fscanf(fichier,"%d",&matrice[i][j])
+	fclose(fichier)
+	retourner OK
+FIN
