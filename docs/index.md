@@ -1,5 +1,5 @@
 ## Bienvenue
-Voici les différent lien vers différent projet réalisé au cours de mes APP
+Voici les différent lien vers différent projet réalisé au cours de nos APP
 
 ### Lien de telechargement
 [https://github.com/simon13456/S1.git](lien)(Le repo en entier)
